@@ -8,7 +8,7 @@ class UploadController < ActionController::Base
       FileUtils::mkdir_p(Rails.root.join("public/uploads/files"))
 
       ext = File.extname(params[:file].original_filename)
-      ext = image_validation(ext)
+      image_validation(ext)
       file_name = "#{SecureRandom.urlsafe_base64}#{ext}"
       path = Rails.root.join("public/uploads/files/", file_name)
 
@@ -28,9 +28,9 @@ class UploadController < ActionController::Base
   def upload_file
     if params[:file]
       FileUtils::mkdir_p(Rails.root.join("public/uploads/files"))
-
+      binding.pry
       ext = File.extname(params[:file].original_filename)
-      ext = file_validation(ext)
+      file_validation(ext)
       file_name = "#{SecureRandom.urlsafe_base64}#{ext}"
       path = Rails.root.join("public/uploads/files/", file_name)
 
