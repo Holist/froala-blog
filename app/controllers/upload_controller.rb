@@ -28,7 +28,6 @@ class UploadController < ActionController::Base
   def upload_file
     if params[:file]
       FileUtils::mkdir_p(Rails.root.join("public/uploads/files"))
-      binding.pry
       ext = File.extname(params[:file].original_filename)
       file_validation(ext)
       file_name = "#{SecureRandom.urlsafe_base64}#{ext}"
